@@ -1,0 +1,104 @@
+<nav class="bg-gray-800 border-b">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button"
+                    class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Open main menu</span>
+                    <!--
+              Icon when menu is closed.
+  
+              Menu open: "hidden", Menu closed: "block"
+            -->
+                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!--
+              Icon when menu is open.
+  
+              Menu open: "block", Menu closed: "hidden"
+            -->
+                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex flex-shrink-0 items-center">
+                    <img routerLinkActive="bg-gray-900 text-white" routerLink="/Home" class=" h-8 w-auto cursor-pointer rounded-full "
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQomne67UBE3_diugdWHDFcBSA7JRU0_3p_A&s"
+                        alt="Your Company">
+                </div>
+                <div class="hidden w-full sm:ml-6 sm:block">
+
+                    <form class="max-w-lg mx-auto">
+                        <div class="flex gap-6">
+                            <a *ngIf="isAdmin" 
+                            routerLink="/Books-Crud" 
+                            routerLinkActive="bg-gray-900 text-white" 
+                            class="rounded-md px-3 py-2 text-center border-[2px] text-sm font-medium w-44 text-gray-300 hover:bg-gray-700 hover:text-white">
+                            BOOKS CRUD
+                         </a>
+                         
+                            <div class="relative w-full">
+                                <input type="search" id="search-dropdown"
+                                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                    placeholder="Search Some Philosophical Shit..." required />
+                                <button type="submit"
+                                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    </svg>
+                                    <span class="sr-only">Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- <div class="flex space-x-4"> -->
+                    <!-- <a href="#"
+                            class="rounded-md  px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                            aria-current="page" routerLinkActive="bg-gray-900 text-white" routerLink="/Home">All
+                            Books</a> -->
+                    <!-- <a href="#" routerLink="/Books-Crud" routerLinkActive="bg-gray-900 text-white"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                            BOOKS CRUD</a> -->
+                    <!-- <a href="#" routerLink="/BorrowManagment" routerLinkActive="bg-gray-900 text-white"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Borrow
+                            Managment</a>
+                        <a href="#" routerLink="/BorrwoedList" routerLinkActive="bg-gray-900 text-white"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Borrwoed
+                            Books List</a> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div routerLink="/ProfilePage"  class="profile-button cursor-pointer mr-6">
+                    <img class="w-8 h-8 rounded-full" src="data:image/png;base64,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" alt="" srcset="">
+                </div>
+                <div (click)="Logout()" class="relative ml-3">
+                    <div class="flex cursor-pointer gap-4 justify-center items-center text-white">
+                        <span class="font-bold">Logout</span>
+                        <div class="w-8 h-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                class="text-white">
+                                <!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                                <path
+                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>

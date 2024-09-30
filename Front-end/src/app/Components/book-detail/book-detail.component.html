@@ -1,0 +1,97 @@
+<main class="min-h-[calc(100vh-4rem)] bg-gray-900 text-gray-100">
+    <section class="overflow-hidden text-gray-100">
+        <div class="container mx-auto px-5 py-24">
+            <div class="flex flex-wrap items-center mx-auto lg:max-w-5xl">
+                <!-- Image Section -->
+                <img alt="Steve Jobs" class="object-cover object-center w-full rounded h-1/2 lg:w-1/4"
+                    src={{DetailBook.imageurl}}>
+
+                <!-- Text Content Section -->
+                <div class="w-full mt-6 lg:w-2/3 lg:pl-10 lg:py-6 lg:mt-0">
+                    <h2 class="relative text-sm tracking-widest text-gray-500 title-font">{{DetailBook.author}}
+                        <div class="absolute right-0 sm:bottom-4 sm:relative bottom-24">
+                            <button type="button" class="absolute right-0  h-12 text-white rounded-full top-1">
+                                Available Stock : {{DetailBook.quantity}}
+                            </button>
+                            <button type="button" class="absolute right-0 top-12  h-12 text-white rounded-full">
+                                Language : {{DetailBook.language}}
+                            </button>
+                        </div>
+                    </h2>
+
+                    <h1 class="mb-1 text-3xl font-medium text-gray-100 title-font">{{DetailBook.title}}</h1>
+
+                    <div class="flex mb-4">
+                        <span class="flex items-center">
+                            <span
+                                class="text-xs mr-3 font-semibold px-2.5 py-0.5 rounded bg-cyan-900 bg-opacity-80 text-gray-100">4.7</span>
+                            <span class="ml-3 text-gray-600">{{DetailBook.pages}} Pages</span>
+                        </span>
+                    </div>
+
+                    <p class="leading-relaxed">
+                     {{DetailBook.description}}
+                    </p>
+
+                    <div class="flex items-baseline my-4">
+                         <span class="text-2xl font-medium text-gray-100 title-font">{{DetailBook.genre}}</span>
+                        <!-- <span class="text-md ml-2 line-through font-medium text-gray-500 title-font">₹700</span> -->
+
+                        <div class="flex ml-auto">
+                            <button (click)="RequestborrowBook()" type="button"
+                                [ngClass]="{
+                                  'w-full px-5 py-2.5 text-xs lg:text-sm font-medium text-center text-gray-100 rounded-lg focus:ring-4 focus:outline-none': true,
+                                  'bg-green-600 hover:bg-cyan-950 focus:ring-cyan-950': !isRequestPending,
+                                  'bg-yellow-500': isRequestPending
+                                }">
+                                {{ isRequestPending ? 'Pending Request' : 'Borrow Request' }}
+                            </button>   
+                          </div>
+                          
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="flex flex-wrap mx-auto border-t border-gray-700 lg:max-w-5xl pt-4">
+                <h2 class="my-2 text-sm tracking-widest text-gray-500 title-font">Recent Reviews</h2>
+
+                <!-- Review Item 1 -->
+                <div class="flex content-center py-4 border-b border-gray-700">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="flex flex-wrap items-center col-span-2">
+                            <p class="w-40 truncate sm:w-60">TechEnthusiast</p>
+                            <div class="flex flex-col items-start justify-between w-full space-y-2 sm:flex-row">
+                                <p class="text-xs text-gray-500">2022-10-15 </p>
+                                <span
+                                    class="text-xs font-semibold px-2.5 py-0.5 rounded bg-cyan-900 bg-opacity-80 text-gray-100">4.8</span>
+                            </div>
+                        </div>
+                        <div class="col-span-2">
+                            <p class="text-md">Walter Isaacson provides a comprehensive and insightful look into the
+                                life of Steve Jobs. A must-read for Apple enthusiasts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Item 2 -->
+                <div class="flex content-center py-4 border-b border-gray-700">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="flex flex-wrap items-center col-span-2">
+                            <p class="w-40 truncate sm:w-60">BusinessProfessional</p>
+                            <div class="flex flex-col items-start justify-between w-full space-y-2 sm:flex-row">
+                                <p class="text-xs text-gray-500">2022-10-05 </p>
+                                <span
+                                    class="text-xs font-semibold px-2.5 py-0.5 rounded bg-cyan-900 bg-opacity-80 text-gray-100">4.6</span>
+                            </div>
+                        </div>
+                        <div class="col-span-2">
+                            <p class="text-md">Steve Jobs is an engrossing biography that delves into the complexities
+                                and genius of one of the most influential figures in technology.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,80 @@
+<div class="mx-4 mt-40">
+    <ul class="flex flex-wrap max-w-4xl mx-auto text-sm font-medium text-center text-gray-400 border-b border-gray-700">
+        <li class="mr-2">
+            <button type="button" (click)="setActiveTab('profile')" [class.bg-gray-800]="activeTab === 'profile'"
+                class="hover:bg-gray-800 inline-block p-4 text-gray-100 rounded-t-lg">Profile</button>
+        </li>
+        <li class="mr-2">
+            <button type="button" (click)="setActiveTab('borrowRequests')"
+                [class.bg-gray-800]="activeTab === 'borrowRequests'"
+                class="hover:bg-gray-800 inline-block p-4 text-gray-100 rounded-t-lg">Borrow Requests</button>
+        </li>
+        <li class="mr-2">
+            <button type="button" (click)="setActiveTab('borrowBooks')"
+                [class.bg-gray-800]="activeTab === 'borrowBooks'"
+                class="hover:bg-gray-800 inline-block p-4 text-gray-100 rounded-t-lg">Borrow Books</button>
+        </li>
+    </ul>
+
+    <div class="ShowTabWise max-w-4xl mx-auto my-4 text-gray-100">
+        <div *ngIf="activeTab === 'profile'">
+            <h1>{{profileinfo.fullname}}</h1>
+            <h2>{{profileinfo.email}}</h2>
+        </div>
+        <div *ngIf="activeTab === 'borrowRequests'">
+            <main class="my-6 mx-6 gap-8 flex justify-center items-center flex-wrap">
+                <div *ngFor="let book of borroerequests; let i = index"
+                    class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-64">
+                    <div class="relative">
+                        <img src="https://ik.imagekit.io/pb97gg2as/E-Commerce-Assets/Categories/Fantasy.webp?updatedAt=1685900046954"
+                            class="w-40 h-40 max-w-xs p-2 sm:h-60 sm:w-60"
+                            alt="Fantasy books involves magic, creatures, quests, and battles between good and evil.">
+                        <!-- <div
+                            class="absolute px-4 ml-4 text-sm leading-7 text-gray-100 bg-gray-600 bottom-3 backdrop-blur-md backdrop-filter bg-clip-padding bg-opacity-20 lg:gap-x-10 md:flex rounded-xl">
+                            <span class="cursor-pointer">{{ book.user_name }}</span>
+                        </div> -->
+                    </div>
+                    <div class="p-5">
+                        <a>
+                            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{ book.book_title }}
+                            </h5>
+                            <button
+                                class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mr-2">
+                                Pending
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div *ngIf="activeTab === 'borrowBooks'">
+            <main class="my-6 mx-6 gap-8 flex justify-center items-center flex-wrap">
+                <div *ngFor="let book of borrowbooks; let i = index"
+                    class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-64">
+                    <div class="relative">
+                        <img src="https://ik.imagekit.io/pb97gg2as/E-Commerce-Assets/Categories/Fantasy.webp?updatedAt=1685900046954"
+                            class="w-40 h-40 max-w-xs p-2 sm:h-60 sm:w-60"
+                            alt="Fantasy books involves magic, creatures, quests, and battles between good and evil.">
+                        <!-- <div
+                            class="absolute px-4 ml-4 text-sm leading-7 text-gray-100 bg-gray-600 bottom-3 backdrop-blur-md backdrop-filter bg-clip-padding bg-opacity-20 lg:gap-x-10 md:flex rounded-xl">
+                            <span class="cursor-pointer">{{ book.Gener }}</span>
+                        </div> -->
+                    </div>
+                    <div class="p-5 cursor-pointer">
+                        <a>
+                            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{ book.book_title }}
+                            </h5>
+                            <button
+                             (click)="ReturnBook(book.user_id ,book.book_id)"
+                                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mr-2">
+                                Return
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

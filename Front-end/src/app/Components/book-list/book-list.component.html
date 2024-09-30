@@ -1,0 +1,32 @@
+<div class="categories flex flex-wrap">
+    <h2 class="text-2xl font-bold text-white w-full">Select Categories</h2>
+    <div *ngFor="let category of categories" class="flex items-center mr-4">
+        <input type="checkbox" [checked]="isSelected(category)" (change)="toggleCategory(category)" class="mr-2" />
+        <label class="text-white">{{ category }}</label>
+    </div>
+</div>
+
+
+<!-- Books Show via Cateogry -->
+
+
+<main class="my-6 mx-6 gap-8 flex justify-center items-center flex-wrap">
+    <div *ngFor="let book of filteredBooks; let i = index"
+        class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-64">
+        <div (click)="Redirect(book.id)" class="relative">
+            <img src={{book.imageurl}} class="w-40 h-40 max-w-xs p-2 sm:h-60 sm:w-60"
+                alt="Fantasy books involves magic, creatures, quests, and battles between good and evil.">
+            <div
+                class="absolute px-4 ml-4 text-sm leading-7 text-gray-100 bg-gray-600 bottom-3 backdrop-blur-md backdrop-filter bg-clip-padding bg-opacity-20 lg:gap-x-10 md:flex rounded-xl">
+                <span class="cursor-pointer">{{ book.genre }}</span>
+            </div>
+        </div>
+        <div class="p-5 cursor-pointer">
+            <a>
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {{ book.title }}
+                </h5>
+            </a>
+        </div>
+    </div>
+</main>

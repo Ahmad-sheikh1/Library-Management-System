@@ -1,0 +1,47 @@
+<div class="heading m-8 w-[500px]">
+    <h1 class="text-6xl font-bold text-white">THE <span class="text-[#9e63e0]">Book Shelf</span></h1>
+    <p class="text-lg mt-2 text-white">Uncover a World of Literary Delights: Explore and Shop the Vast Library of Our
+        E-Commerce Bookstore</p>
+</div>
+
+<!-- Search Bar -->
+
+<!-- <form class="max-w-md mx-auto my-6">
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+        </div>
+        <input type="search" id="default-search"
+            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search Books..." required />
+        <button type="submit"
+            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+    </div>
+</form> -->
+
+<main class="my-6 mx-6 gap-8 flex justify-center items-center flex-wrap">
+    <div *ngFor="let book of genres; let i = index"
+        class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-64">
+        <div (click)="onCategoryClick(book.Gener)" class="relative">
+            <img src={{book.ImageURL}}
+                class="w-40 h-40 max-w-xs p-2 sm:h-60 sm:w-60"
+                alt="Fantasy books involves magic, creatures, quests, and battles between good and evil.">
+            <div
+                class="absolute px-4 ml-4 text-sm leading-7 text-gray-100 bg-gray-600 bottom-3 backdrop-blur-md backdrop-filter bg-clip-padding bg-opacity-20 lg:gap-x-10 md:flex rounded-xl">
+                <span class="cursor-pointer">{{ book.Gener }}</span>
+            </div>
+        </div>
+        <div class="p-5 cursor-pointer">
+            <a>
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {{ book.Description }}
+                </h5>
+            </a>
+        </div>
+    </div>
+</main>

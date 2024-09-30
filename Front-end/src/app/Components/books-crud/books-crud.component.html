@@ -1,0 +1,32 @@
+<div class="tabs">
+    <!-- Tab Navigation -->
+    <ul class="flex border-b border-gray-300">
+      <li class="mr-4">
+        <a
+          class="inline-block py-2 px-4 text-blue-600 border-b-2 transition duration-300"
+          [ngClass]="{'border-blue-500 text-blue-500': selectedTab === 'crud', 'hover:text-gray-500': selectedTab !== 'crud'}"
+          (click)="selectTab('crud')"
+          >Admin CRUD</a
+        >
+      </li>
+      <li class="mr-4">
+        <a
+          class="inline-block py-2 px-4 text-blue-600 border-b-2 transition duration-300"
+          [ngClass]="{'border-blue-500 text-blue-500': selectedTab === 'approval', 'hover:text-gray-500': selectedTab !== 'approval'}"
+          (click)="selectTab('approval')"
+          >Admin Approval</a
+        >
+      </li>
+    </ul>
+  
+    <!-- Tab Content -->
+    <div class="tab-content mt-5">
+      <div *ngIf="selectedTab === 'crud'">
+        <app-admin-crud></app-admin-crud> <!-- Admin CRUD Component -->
+      </div>
+      <div *ngIf="selectedTab === 'approval'">
+        <app-admin-approval></app-admin-approval> <!-- Admin Approval Component -->
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,17 @@
+.categories {
+    padding: 20px;
+    background-color: #282c34;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of categories */
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    width: 100%; /* Makes the heading take full width */
+  }
+  
+  input[type="checkbox"] {
+    cursor: pointer;
+  }
+  
